@@ -3,13 +3,36 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Home from './screens/home';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import Contact from './screens/contact';
+import Station from './screens/station';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />
+  },
+  {
+    path: "/contact",
+    element: <Contact />
+  },
+  {
+    path: "/station/:stationId/:method",
+    element: <Station />
+  },
+]);
+
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
