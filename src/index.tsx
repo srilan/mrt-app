@@ -21,7 +21,11 @@ const router = createBrowserRouter([
     element: <Contact />
   },
   {
-    path: "/station/:stationId/:method",
+    path: "/station/:stationId",
+    element: <Station />
+  },
+  {
+    path: "/station",
     element: <Station />
   },
 ]);
