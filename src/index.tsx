@@ -10,11 +10,14 @@ import {
 } from "react-router-dom";
 import Contact from './screens/contact';
 import Station from './screens/station';
+import Login from './screens/login';
+import { ProtectedRoute } from './components/ProtectedRoute';
+import { AuthProvider } from './screens/context/AuthContext';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />
+    element: <AuthProvider><ProtectedRoute><Home /></ProtectedRoute></AuthProvider>
   },
   {
     path: "/contact",
@@ -23,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: "/station/:stationId",
     element: <Station />
+  },
+  {
+    path: "/login",
+    element: <AuthProvider><Login /></AuthProvider>
   },
   {
     path: "/station",
